@@ -4,9 +4,8 @@
 #include <string.h>
 #include "main.h"
 
-
 /**
- * print - this functions prints any number
+ * print - print x number
  * @n: number to printed
  */
 void print(int n)
@@ -15,15 +14,14 @@ void print(int n)
 	{
 		putchar('-');
 		n = -n;
-
 	}
 	if (n == 0)
-		putchar('0');
+		putchar('-');
 
-	if (n/10)
-		print(n/10);
+	if (n / 10)
+		print(n / 10);
 
-	putchar(n%10 + '0');
+	putchar((n % 10) + '0');
 }
 
 /**
@@ -37,7 +35,6 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	const char *ptr;
-	char c;
 	va_list args;
 
 	va_start(args, format);
@@ -48,37 +45,20 @@ int _printf(const char *format, ...)
 		{
 			switch (*(++ptr))
 			{
-				case 'c':
-					c = va_arg(args, int);
-					putchar(c);
-					count++;
-					break;
-				case 's':
-					{
-						char *str = va_arg(args, char *);
-						if (str == NULL)
-							str = "(null)";
-						while (*str)
-						{
-							putchar(*str++);
-							count++;
-						}
-					}
-					break;
-				case '%':
-					putchar('%');
-					count++;
-					break;
 
 				case 'd':
 					int num = va_arg(args, int);
-					print(num);
+
+					_putchar(num);
+					break;
+
+				case 'i':
 					break;
 
 				default:
 					putchar('%');
 					putchar(*ptr);
-					count +=2;
+					count += 2;
 					break;
 			}
 		}
@@ -92,4 +72,3 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
-
