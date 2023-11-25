@@ -16,13 +16,35 @@ void print(int n)
 		n = -n;
 	}
 	if (n == 0)
-		putchar('-');
+		putchar('0');
 
 	if (n / 10)
 		print(n / 10);
 
 	putchar((n % 10) + '0');
 }
+
+/**
+ * print_long - print x long number
+ * @n: number to be printed
+ */
+void print_long(long n)
+{
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+	if (n == 0)
+		_putchar('0');
+
+	if (n / 10)
+		print_long(n / 10);
+
+	_putchar((n % 10) + '0');
+
+}
+
 
 /**
  * _printf - Custom printf function
@@ -45,14 +67,18 @@ int _printf(const char *format, ...)
 		{
 			switch (*(++ptr))
 			{
-
+				/* print format: %d (jahzserrano)*/
 				case 'd':
-					int num = va_arg(args, int);
+					int n = va_arg(args, int);
 
-					_putchar(num);
+					print(num);
 					break;
 
+				/* print format: %i (jahzserrano)*/
 				case 'i':
+					long n = va_arg(args, long);
+
+					print_long(n);
 					break;
 
 				default:
