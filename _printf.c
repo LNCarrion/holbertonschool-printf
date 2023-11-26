@@ -16,6 +16,7 @@ int print_long(long int number) {
         {
                 putchar('-');
                 number = -number;
+		count = count + 1;
         }
         if (number == 0)
         {
@@ -124,13 +125,27 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-					count = count + (print_number(n) - 1);
+					if (count > 0)
+                                        {
+                                                count = count + (print_long(nl) - 1);
+                                        }
+                                        else
+                                        {
+                                                count = count + (print_long(ln) - 2);
+                                        }
 					break;
 
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
-					count = count + (print_long(nl) - 1);
+					if (count > 0)
+					{
+						count = count + (print_long(nl) - 1);
+					}
+					else
+					{
+						count = count + (print_long(ln) - 2);
+					}
 					break;
 
 				default:
