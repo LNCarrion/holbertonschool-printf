@@ -5,6 +5,48 @@
 #include "main.h"
 
 /**
+ * print - print x number
+ * @n: number to printed
+ */
+void print(int n)
+{
+	if (n < 0)
+	{
+		putchar('-');
+		n = -n;
+	}
+	if (n == 0)
+		putchar('0');
+
+	if (n / 10)
+		print(n / 10);
+
+	putchar((n % 10) + '0');
+}
+
+/**
+ * print_long - print x long number
+ * @n: number to be printed
+ */
+void print_long(long int n)
+{
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+	if (n == 0)
+		_putchar('0');
+
+	if (n / 10)
+		print_long(n / 10);
+
+	_putchar((n % 10) + '0');
+
+}
+
+
+/**
  * _printf - Custom printf function
  * @format: Format string
  *
@@ -13,9 +55,11 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, n;
+	long int nl;
 	const char *ptr;
 	char c;
+  
 	va_list args;
 
 	va_start(args, format);
@@ -47,6 +91,21 @@ int _printf(const char *format, ...)
 					putchar('%');
 					count++;
 					break;
+          
+        /*If the format is a d is an integer*/
+				case 'd':
+					n = va_arg(args, int);
+
+					print(n);
+					break;
+
+        /*if format is i is a long integer*/
+				case 'i':
+					nl = va_arg(args, long int);
+
+					print_long(nl);
+					break;
+          
 				default:
 					putchar('%');
 					putchar(*ptr);
