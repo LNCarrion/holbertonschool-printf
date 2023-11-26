@@ -104,7 +104,7 @@ int _printf(const char *format, ...)
 				default:
 					putchar('%');
 					putchar(*ptr);
-					count +=2;
+					count +=1;
 					break;
 			}
 		}
