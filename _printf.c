@@ -11,7 +11,7 @@
 
 int print_number(long int number) {
 	
-	int i;
+	int i, count = 0;
 	
 	if (number < 0)
 	{
