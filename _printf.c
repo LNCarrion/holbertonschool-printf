@@ -9,19 +9,19 @@
  * @number: Number to be printed
  */
 
-void print_number(long int number) {
+int print_number(long int number) {
 	
 	int i;
 	
 	if (number < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		number = -number;
 	}
 	
 	if (number == 0) 
 	{
-		_putchar('0');
+		putchar('0');
 	} 
 	else 
 	{
@@ -36,9 +36,11 @@ void print_number(long int number) {
 		}
 		for (i = count - 1; i >= 0; i--) 
 		{
-			_putchar(digits[i]);
+			putchar(digits[i]);
 		}
 	}
+
+	return (count);
 }
 
 /**
@@ -90,15 +92,13 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-	
-					print_number(n);
+					count = print_number(n);
 					break;
 
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
-
-					print_number(nl);
+					count = print_number(nl);
 					break;
 
 				default:
