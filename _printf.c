@@ -100,6 +100,12 @@ int _printf(const char *format, ...)
 
 					print_number(nl);
 					break;
+
+				default:
+					putchar('%');
+					putchar(*ptr);
+					count =+ 2;
+					break;
 			}
 		}
 		else
@@ -108,7 +114,8 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
+	count++
 
-	return (2);
+	return (count);
 }
 
