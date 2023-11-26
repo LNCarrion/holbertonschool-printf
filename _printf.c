@@ -127,11 +127,11 @@ int _printf(const char *format, ...)
 					n = va_arg(args, int);
 					if (count > 0)
                                         {
-                                                count = count + (print_long(nl) - 1);
+                                                count = count + (print_long(n) - 1);
                                         }
                                         else
                                         {
-                                                count = count + (print_long(ln) - 2);
+                                                count = count + (print_long(n) - 2);
                                         }
 					break;
 
@@ -144,7 +144,7 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						count = count + (print_long(ln) - 2);
+						count = count + (print_long(nl) - 2);
 					}
 					break;
 
