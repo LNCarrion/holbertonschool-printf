@@ -7,7 +7,7 @@
 /**
  * print_number - a function that prints a number digit by digit
  * @number: Number to be printed
- */i
+ */
 
 void print_number(long int number) {
     // Check if the number is negative
