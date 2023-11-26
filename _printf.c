@@ -10,34 +10,37 @@
  */
 
 void print_number(long int number) {
-    // Check if the number is negative
-    if (number < 0) {
-        putchar('-');
-        number = -number; // Make the number positive
-    }
-
-    // Handle the case of 0 separately
-    if (number == 0) {
-        putchar('0');
-    } else {
-        // Temporary array to store individual digits
-        char digits[20]; // Assuming a maximum of 20 digits for the number
-        int count = 0;
-
-        // Extract digits by repeatedly dividing by 10
-        while (number > 0) {
-            digits[count] = '0' + (number % 10); // Store the digit as a character
-            number /= 10;
-            count++;
-        }
-
-        // Print the digits in reverse order
-        for (int i = count - 1; i >= 0; i--) {
-            putchar(digits[i]);
-        }
-    }
+	
+	int i;
+	
+	if (number < 0)
+	{
+		_putchar('-');
+		number = -number;
+	}
+	
+	if (number == 0) 
+	{
+		_putchar('0');
+	} 
+	else 
+	{
+		char digits[20];
+		int count = 0;
+		
+		while (number > 0)
+		{
+			digits[count] = '0' + (number % 10);
+			number /= 10;
+			count++;
+		}
+		for (i = count - 1; i >= 0; i--) 
+		{
+			_putchar(digits[i]);
+		}
+	}
 }
-                                                                                      ~                                                                                         ~                                                                                         ~         
+
 /**
  * _printf - Custom printf function
  * @format: Format string
