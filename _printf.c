@@ -92,7 +92,7 @@ int _printf(const char *format, ...)
 				case 'd':
 					n = va_arg(args, int);
 					count = count + print_number(n);
-					printf(count);
+					printf("%i", count);
 					break;
 
         /*if format is i is a long integer*/
