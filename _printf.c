@@ -125,7 +125,7 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-					if (count > 0)
+					if (n > 0)
                                         {
                                                 count = count + (print_long(n) - 1);
                                         }
@@ -138,7 +138,7 @@ int _printf(const char *format, ...)
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
-					if (count > 0)
+					if (nl > 0)
 					{
 						count = count + (print_long(nl) - 1);
 					}
