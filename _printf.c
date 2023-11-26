@@ -131,7 +131,7 @@ int _printf(const char *format, ...)
                                         }
                                         else
                                         {
-                                                count = count + (print_long(n) - 2);
+                                                count = count + (print_long(n) + 1);
                                         }
 					break;
 
@@ -144,7 +144,7 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						count = count + (print_long(nl) - 2);
+						count = count + (print_long(nl) + 1);
 					}
 					break;
 
