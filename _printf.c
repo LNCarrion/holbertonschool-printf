@@ -28,7 +28,7 @@ void print(int n)
  * print_long - print x long number
  * @n: number to be printed
  */
-void print_long(long n)
+void print_long(long int n)
 {
 	if (n < 0)
 	{
@@ -58,6 +58,8 @@ int _printf(const char *format, ...)
 	int count = 0, n;
 	long int nl;
 	const char *ptr;
+	char c;
+  
 	va_list args;
 
 	va_start(args, format);
@@ -68,24 +70,46 @@ int _printf(const char *format, ...)
 		{
 			switch (*(++ptr))
 			{
-				/* print format: %d (jahzserrano)*/
+				case 'c':
+					c = va_arg(args, int);
+					putchar(c);
+					count++;
+					break;
+				case 's':
+					{
+						char *str = va_arg(args, char *);
+						if (str == NULL)
+							str = "(null)";
+						while (*str)
+						{
+							putchar(*str++);
+							count++;
+						}
+					}
+					break;
+				case '%':
+					putchar('%');
+					count++;
+					break;
+          
+        /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
 
 					print(n);
 					break;
 
-				/* print format: %i (jahzserrano)*/
+        /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
 
 					print_long(nl);
 					break;
-
+          
 				default:
 					putchar('%');
 					putchar(*ptr);
-					count += 2;
+					count +=2;
 					break;
 			}
 		}
@@ -99,3 +123,4 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
+
