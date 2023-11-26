@@ -5,47 +5,39 @@
 #include "main.h"
 
 /**
- * print - print x number
- * @n: number to printed
- */
-void print(int n)
-{
-	if (n < 0)
-	{
-		putchar('-');
-		n = -n;
-	}
-	if (n == 0)
-		putchar('0');
+ * print_number - a function that prints a number digit by digit
+ * @number: Number to be printed
+ */i
 
-	if (n / 10)
-		print(n / 10);
+void print_number(long int number) {
+    // Check if the number is negative
+    if (number < 0) {
+        putchar('-');
+        number = -number; // Make the number positive
+    }
 
-	putchar((n % 10) + '0');
+    // Handle the case of 0 separately
+    if (number == 0) {
+        putchar('0');
+    } else {
+        // Temporary array to store individual digits
+        char digits[20]; // Assuming a maximum of 20 digits for the number
+        int count = 0;
+
+        // Extract digits by repeatedly dividing by 10
+        while (number > 0) {
+            digits[count] = '0' + (number % 10); // Store the digit as a character
+            number /= 10;
+            count++;
+        }
+
+        // Print the digits in reverse order
+        for (int i = count - 1; i >= 0; i--) {
+            putchar(digits[i]);
+        }
+    }
 }
-
-/**
- * print_long - print x long number
- * @n: number to be printed
- */
-void print_long(long int n)
-{
-	if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-	}
-	if (n == 0)
-		_putchar('0');
-
-	if (n / 10)
-		print_long(n / 10);
-
-	_putchar((n % 10) + '0');
-
-}
-
-
+                                                                                      ~                                                                                         ~                                                                                         ~         
 /**
  * _printf - Custom printf function
  * @format: Format string
@@ -96,14 +88,14 @@ int _printf(const char *format, ...)
 				case 'd':
 					n = va_arg(args, int);
 
-					print(n);
+					print_number(n);
 					break;
 
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
 
-					print_long(nl);
+					print_number(nl);
 					break;
           
 				default:
