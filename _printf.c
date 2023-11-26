@@ -40,7 +40,7 @@ int print_number(long int number) {
 		}
 	}
 
-	return (count);
+	return (count + 1);
 }
 
 /**
