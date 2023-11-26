@@ -99,6 +99,8 @@ int _printf(const char *format, ...)
 				case 'i':
 					nl = va_arg(args, long int);
 					count = print_number(nl);
+					if (count != 0)
+						count = count - 1;
 					break;
 
 				default:
