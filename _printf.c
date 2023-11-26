@@ -99,7 +99,7 @@ int _printf(const char *format, ...)
 				case 'i':
 					nl = va_arg(args, long int);
 					count = print_number(nl);
-					return (count);
+					break;
 
 				default:
 					putchar('%');
