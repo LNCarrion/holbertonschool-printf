@@ -111,10 +111,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			putchar(*ptr);
+			count++;
 		}
 	}
 	va_end(args);
-	count++
+	count++;
 
 	return (count);
 }
