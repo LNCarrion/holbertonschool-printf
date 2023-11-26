@@ -8,8 +8,40 @@
  * print_number - a function that prints a number digit by digit
  * @number: Number to be printed
  */
+int print_long(long int)
+{
+	int i, count = 0;
 
-int print_number(long int number) {
+	if (number < 0)
+	{
+		putchar('-');
+		number = -number;
+		count = count + 1;
+
+	}
+	if (number == 0)
+	{
+		_putchar('0');
+	}
+	else
+	{
+		char digits[20];
+
+		while (number > 0)
+		{
+			digits[count] = '0' + (number % 10);
+                        number /= 10;
+                        count++;
+		}
+		for (i = count - 1; i >= 0; i--)
+                {
+                       _putchar(digits[i]);
+		}
+	}
+	return (count);
+}
+
+int print_number(int number) {
 	
 	int i, count = 0;
 	
@@ -41,6 +73,7 @@ int print_number(long int number) {
 
 	return (count);
 }
+
 
 /**
  * _printf - Custom printf function
@@ -98,7 +131,7 @@ int _printf(const char *format, ...)
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
-					count = count + print_number(nl);
+					count = count + (print_long(nl) - 1);
 					break;
 
 				default:
