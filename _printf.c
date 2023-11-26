@@ -17,6 +17,11 @@ int print_number(long int number) {
 	{
 		putchar('-');
 		number = -number;
+		count = 1;
+	}
+	else
+	{
+		count = 0;
 	}
 	
 	if (number == 0) 
@@ -26,7 +31,6 @@ int print_number(long int number) {
 	else 
 	{
 		char digits[20];
-		int count = 0;
 		
 		while (number > 0)
 		{
@@ -92,13 +96,13 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-					count = print_number(n);
+					count += print_number(n);
 					break;
 
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
-					count = print_number(nl);
+					count += print_number(nl);
 					break;
 
 				default:
