@@ -16,7 +16,6 @@ int print_long(long int number) {
         {
                 putchar('-');
                 number = -number;
-                count = 1;
         }
         if (number == 0)
         {
