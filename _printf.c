@@ -8,7 +8,7 @@
  * print_number - a function that prints a number digit by digit
  * @number: Number to be printed
  */
-int print_long(long int)
+int print_long(long int number)
 {
 	int i, count = 0;
 
