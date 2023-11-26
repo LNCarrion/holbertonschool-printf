@@ -48,7 +48,6 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 
-					break;
 				default:
 					putchar('%');
 					putchar(*ptr);
