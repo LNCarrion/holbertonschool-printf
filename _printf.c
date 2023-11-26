@@ -19,11 +19,6 @@ int print_number(long int number) {
 		number = -number;
 		count = 1;
 	}
-	else
-	{
-		count = 0;
-	}
-	
 	if (number == 0) 
 	{
 		putchar('0');
@@ -96,19 +91,20 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-					count += print_number(n);
+					count = count + print_number(n);
+					printf(count);
 					break;
 
         /*if format is i is a long integer*/
 				case 'i':
 					nl = va_arg(args, long int);
-					count += print_number(nl);
+					count = count + print_number(nl);
 					break;
 
 				default:
 					putchar('%');
 					putchar(*ptr);
-					count =+ 2;
+					count += 2;
 					break;
 			}
 		}
