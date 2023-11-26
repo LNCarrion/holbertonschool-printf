@@ -125,8 +125,7 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-					count = count + print_number(n);
-					printf("%i", count);
+					count = count + (print_number(n) - 1);
 					break;
 
         /*if format is i is a long integer*/
