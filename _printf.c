@@ -90,7 +90,7 @@ int _printf(const char *format, ...)
         /*If the format is a d is an integer*/
 				case 'd':
 					n = va_arg(args, int);
-
+	
 					print_number(n);
 					break;
 
@@ -99,12 +99,6 @@ int _printf(const char *format, ...)
 					nl = va_arg(args, long int);
 
 					print_number(nl);
-					break;
-          
-				default:
-					putchar('%');
-					putchar(*ptr);
-					count +=1;
 					break;
 			}
 		}
