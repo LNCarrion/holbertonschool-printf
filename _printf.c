@@ -55,7 +55,8 @@ void print_long(long n)
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, n;
+	long int nl;
 	const char *ptr;
 	va_list args;
 
@@ -69,16 +70,16 @@ int _printf(const char *format, ...)
 			{
 				/* print format: %d (jahzserrano)*/
 				case 'd':
-					int n = va_arg(args, int);
+					n = va_arg(args, int);
 
-					print(num);
+					print(n);
 					break;
 
 				/* print format: %i (jahzserrano)*/
 				case 'i':
-					long n = va_arg(args, long);
+					nl = va_arg(args, long int);
 
-					print_long(n);
+					print_long(nl);
 					break;
 
 				default:
