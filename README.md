@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h2 align="center">Holberton Printf</h2>
+  <h3 align="center">Holberton Printf</h3>
 
   <p align="center">
    This project contains a functional homemade printf functions. It supports just for Chars, long int and int data types.
