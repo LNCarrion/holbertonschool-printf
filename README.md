@@ -1,6 +1,9 @@
-# holbertonschool_printf
+# holbertonschool_printf :page_fancing_up:
 
 This project contains a functional homemade printf functions. It supports just for Chars, long int and int data types.
+
+## Dependencies
+For this project we use gcc version 11.4.0
 
 
 ## Getting Started
