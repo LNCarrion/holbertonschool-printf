@@ -1,4 +1,14 @@
-# holbertonschool_printf :page_fancing_up:
+<div align="center">
+
+  <h1 align="center">Holberton Printf</h1>
+
+  <p align="center">
+    A Homemade Printf
+    <br />
+    <a href="https://github.com/LNCarrion/holbertonschool-printf"><strong>Explore the docs »</strong></a>
+    <br />
+  </p>
+</div>
 
 This project contains a functional homemade printf functions. It supports just for Chars, long int and int data types.
 
@@ -31,7 +41,7 @@ If you wanna just test the code use our main.c included in the repo. You can fre
 /* yor code here*/
 ```
 
-<p><span style="color:blue">!Important:</span> remember when compiling add main.h and _printf files</p>
+<p><p style="color:blue">!Important:</p> remember when compiling add main.h and _printf files</p>
 
 ## About the code
 
