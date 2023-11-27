@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 	const char *ptr;
 	char c;
 	int count = 0;
+	int len;
+	int i;
 
 	va_start(args, format);
 
@@ -46,8 +48,8 @@ int _printf(const char *format, ...)
 						if (str == NULL)
 							str = "(null)";
 
-						int len = strlen(str);
-						for (int i = len - 1; i >= 0; i--)
+						len = strlen(str);
+						for (i = len - 1; i >= 0; i--)
 							putchar(str[i]), count++;
 					}
 					break;
