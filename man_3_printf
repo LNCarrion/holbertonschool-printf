@@ -1,0 +1,50 @@
+.TH PRINTF 3 "November 2023" "Version 1.1" "printf man page"
+.SH NAME
+printf \- Custom printf function
+.SH SYNOPSIS
+.B #include <stdarg.h>
+.B #include <stdio.h>
+.B #include <stdlib.h>
+.B #include <string.h>
+.B #include "main.h"
+.B int _printf(const char *format, ...);
+.B void print(int n);
+.B void print_long(long int n);
+.SH DESCRIPTION
+The \fI_printf\fR function is a custom implementation of the printf function. It takes a format string and additional arguments and prints formatted output to the standard output.
+.P
+The format string can contain format specifiers that begin with the '%' character. Supported format specifiers are:
+.TP
+.B %c
+Print a character.
+.TP
+.B %s
+Print a string.
+.TP
+.B %%
+Print a literal '%'.
+.TP
+.B %d
+Print an integer.
+.TP
+.B %i
+Print a long integer.
+.P
+Any other character following '%' will be treated as a literal character.
+.P
+The \fIprint\fR function prints an integer, and \fIprint_long\fR prints a long integer.
+.P
+The function returns the number of characters printed (excluding the null byte).
+.SH RETURN VALUE
+The \fI_printf\fR function returns the number of characters printed (excluding the null byte).
+.SH EXAMPLES
+Print a character, a string, an integer, and a long integer:
+.B _printf("Character: %c, String: %s, Integer: %d, Long Integer: %i\n", 'H', "Hello", 42, 1234567890L);
+.P
+The output will be:
+.I Character: H, String: Hello, Integer: 42, Long Integer: 1234567890
+.SH SEE ALSO
+man(1), printf(3)
+.SH AUTHOR
+lesty carrion <lestycarrion@gmail.com>
+

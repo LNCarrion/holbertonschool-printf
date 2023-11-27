@@ -135,18 +135,9 @@ int _printf(const char *format, ...)
                                         }
 					break;
 
-        /*if format is i is a long integer*/
-				case 'i':
-					nl = va_arg(args, long int);
-					if (nl > 0)
-					{
-						count = count + (print_long(nl) - 1);
-					}
-					else
-					{
-						count = count + (print_long(nl) + 2);
-					}
-					break;
+
+        
+
 
 				default:
 					putchar('%');
