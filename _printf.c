@@ -5,6 +5,78 @@
 #include "main.h"
 
 /**
+ * print_number - a function that prints a number digit by digit
+ * @number: Number to be printed
+ */
+int print_long(long int number) {
+
+        int i, count = 0;
+
+        if (number < 0)
+        {
+                putchar('-');
+                number = -number;
+		count = count + 1;
+        }
+        if (number == 0)
+        {
+                putchar('0');
+        }
+        else
+        {
+                char digits[20];
+
+                while (number > 0)
+                {
+                        digits[count] = '0' + (number % 10);
+                        number /= 10;
+                        count++;
+                }
+                for (i = count - 1; i >= 0; i--)
+                {
+                        putchar(digits[i]);
+                }
+        }
+
+        return (count);
+}
+
+
+int print_number(int number) {
+	
+	int i, count = 0;
+	
+	if (number < 0)
+	{
+		putchar('-');
+		number = -number;
+		count = 1;
+	}
+	if (number == 0) 
+	{
+		putchar('0');
+	} 
+	else 
+	{
+		char digits[20];
+		
+		while (number > 0)
+		{
+			digits[count] = '0' + (number % 10);
+			number /= 10;
+			count++;
+		}
+		for (i = count - 1; i >= 0; i--) 
+		{
+			putchar(digits[i]);
+		}
+	}
+
+	return (count);
+}
+
+
+/**
  * _printf - Custom printf function
  * @format: Format string
  *
@@ -13,9 +85,11 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, n;
+	long int nl;
 	const char *ptr;
 	char c;
+  
 	va_list args;
 
 	va_start(args, format);
@@ -47,11 +121,28 @@ int _printf(const char *format, ...)
 					putchar('%');
 					count++;
 					break;
+          
+        /*If the format is a d is an integer*/
+				case 'd':
+					n = va_arg(args, int);
+					if (n > 0)
+                                        {
+                                                count = count + (print_long(n) - 1);
+                                        }
+                                        else
+                                        {
+                                                count = count + (print_long(n));
+                                        }
+					break;
+
+
+        
+
 
 				default:
 					putchar('%');
 					putchar(*ptr);
-					count +=2;
+					count += 2;
 					break;
 			}
 		}
@@ -62,6 +153,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
+	count++;
 
 	return (count);
 }
